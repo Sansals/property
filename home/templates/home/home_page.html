@@ -1,0 +1,9 @@
+{% extends 'home/wrapper.html' %}
+{% block title %}Главная страница{% endblock %}
+{% load static %}
+{% block content %}
+    <h3>{{ my_car }}</h3>
+    <img src="{% static 'images/home/home_page.jpg'%}" >
+    <block class="text_content">
+        <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid cupiditate ex inventore ipsa labore maxime molestias praesentium quaerat repudiandae vitae.</span>
+{% endblock %}

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %} {% endblock %}</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" type="text/css">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/home/style.css' %}" type="text/css">
+</head>
+<body>
+    <aside>
+        <ul>
+            <a href="{% url 'home' %}"><li><i class="fas fa-home"> </i>  Главная</li></a>
+            <a href="{% url 'about' %}"><li><i class="fas fa-address-card"> </i>  Чем мы занимаемся</li></a>
+            <a href=""><li><i class="fas fa-rss-square"> </i>  Объявления</li></a>
+            <a href=""><li><i class="fas fa-phone"> </i>  Контакты</li></a>
+
+            {% if user.is_authenticated  %}
+                <li id="user_auth"> {{ user.get_username }} </li>
+                <a href="{% url 'logout' %}?next={{ request.path }}"><li> Выйти </li></a>
+            {% else %}
+                <a href="{% url 'login' %}?next={{ request.path }}"><li id="user_auth"> Войти </li></a>
+            {% endif %}
+        </ul>
+    </aside>
+    <main>
+        {% block content %}
+
+        {% endblock %}
+    </main>
+</body>
+</html>
