@@ -6,6 +6,8 @@ from django.contrib.auth.forms import UserCreationForm
 def home_page(request):
     return render(request, 'home/home_page.html')
 
+
+
 def test(request):
     if request.method == 'POST':
         form = ContactForm(request.POST)

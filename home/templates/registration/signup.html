@@ -4,7 +4,15 @@
 <h2>Регистрация</h2>
 <form method="post">
   {% csrf_token %}
-  {{ form.as_p }}
-  <button type="submit">Зарегистрироваться!</button>
+  {% if user.is_authenticated  %}
+    <p>Вы уже авторизированы!</p>
+  {% else %}
+    {{ form.username }}<br><br>
+    {{ form.email }}<br><br>
+    {{ form.password1 }}<br><br>
+    {{ form.password2 }}<br><br>
+    <span>{{ error }}</span>
+    <button type="submit">Зарегистрироваться!</button>
+  {% endif %}
 </form>
 {% endblock content %}
