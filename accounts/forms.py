@@ -20,5 +20,5 @@ class RegistrForm(UserCreationForm):
         # Свойство назначения полей
         fields = ('username', 'email', 'password1', 'password2')
 
-class Auth_Form(forms.Form):
-    auth_code = forms.CharField(label='Код подтверждения', widget=forms.TextInput())
+class Authentication_code(forms.Form):
+    auth_code = forms.CharField(label='Код подтверждения', widget=forms.TextInput(attrs={'class': 'form-input'}))

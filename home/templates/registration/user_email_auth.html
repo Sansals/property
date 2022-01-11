@@ -5,7 +5,7 @@
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit">Подтвердить!</button>
-    <span>На почту {{ email }} ушло письмо с кодом! {{ code_user }}</span>
+    <span>На почту {{ email }} ушло письмо с кодом! {{ code }}</span>
     <span>{{ error }}</span>
 </form>
 {% endblock %}

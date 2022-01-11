@@ -2,6 +2,10 @@ body {
     background: #808080;
 }
 
+#error_span{
+    color:red;
+}
+
 body .text_content{
     text-align:right;
     color:#ffffff;

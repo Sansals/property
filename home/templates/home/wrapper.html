@@ -16,8 +16,8 @@
             <a href=""><li><i class="fas fa-rss-square"> </i>  Объявления</li></a>
             <a href=""><li><i class="fas fa-phone"> </i>  Контакты</li></a>
 
-            {% if user.is_authenticated  %}
-                <li id="user_auth"> {{ user.get_username }} </li>
+            {% if user.is_authenticated == True  %}
+                <a href="{% url 'profile' %}"><li id="user_auth"> {{ user.get_username }} {{ email_None }}</li></a>
                 <a href="{% url 'logout' %}?next={{ request.path }}"><li> Выйти </li></a>
             {% else %}
                 <a href="{% url 'login' %}?next={{ request.path }}"><li id="user_auth"> Войти </li></a>
