@@ -1,5 +1,15 @@
 {% extends 'home/wrapper.html' %}
 
 {% block content %}
-
+<span>Имя пользователя: {{user_name}}</span><br>
+<span>Имя: {{user_first_name}}</span>{% if user_first_name == '*Отсутствует*' %}
+                                    <a href='{% url "users_data" %}'>Добавить данные</a>
+                                    {% endif %}<br>
+<span>Фамилия: {{user_last_name}}</span>{% if user_last_name == '*Отсутствует*' %}
+                                    <a href='{% url "users_data" %}'>Добавить данные</a>
+                                    {% endif %}<br>
+<span>Почта: {{user_email}}</span>{% if user_email == '' %}
+                                    <a href='{% url "login" %}'>Подтвердить аккаунт</a>
+                                    {% endif %}<br>
+<span>Статус аккаунта: {{status_account}}</span>
 {% endblock %}

@@ -28,8 +28,8 @@
   <td>{{ form.password }}</td>
 </tr>
 </table>
-
-<input type="submit" value="login" />
+<span id="error_span">{{error}}</span><br>
+<input type="submit" value="Войти" />
 <input type="hidden" name="next" value="{{ next }}" />
   {# Assumes you setup the password_reset view in your URLconf #}
 <p><a href="{% url 'password_reset' %}">Забыли пароль?</a></p>

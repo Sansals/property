@@ -7,10 +7,25 @@
   {% if user.is_authenticated  %}
     <p>Вы уже авторизированы!</p>
   {% else %}
-    {{ form.username }}<br><br>
-    {{ form.email }}<br><br>
-    {{ form.password1 }}<br><br>
-    {{ form.password2 }}<br><br>
+  <table>
+
+    <tr>
+        <td>{{form.username.label_tag }}</td>
+        <td>{{ form.username }}</td>
+    </tr>
+    <tr>
+        <td>{{form.email.label_tag }}</td>
+        <td>{{ form.email }}</td>
+    </tr>
+    <tr>
+        <td>{{form.password1.label_tag }}</td>
+        <td>{{ form.password1 }}</td>
+    </tr>
+    <tr>
+        <td>{{form.password2.label_tag }}</td>
+        <td>{{ form.password2 }}</td>
+    </tr>
+    </table>
     <span id="error_span">{{ error }}</span><br>
     <button type="submit">Зарегистрироваться!</button>
   {% endif %}

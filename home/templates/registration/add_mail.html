@@ -1,0 +1,12 @@
+{% extends "home/wrapper.html" %}
+
+{% block content %}
+<h2>Подтверждение учётной записи</h2>
+<form method="post">
+  {% csrf_token %}
+  <label>Введите ваш адрес электронной почты:</label>
+  {{ form.email }}<br>
+  <span id="error_span">{{ error }}</span><br>
+  <button type="submit">Подтвердить!</button>
+</form>
+{% endblock %}

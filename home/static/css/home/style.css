@@ -2,6 +2,19 @@ body {
     background: #808080;
 }
 
+.text-muted{
+    color:#801919!important;
+}
+
+.add_name{
+    background:#ffffff;
+    margin-right:30%;
+    margin-left:30%;
+    margin-top:30px;
+    padding:2%;
+    border: 4mm ridge #89eb5b;
+}
+
 #error_span{
     color:red;
 }
