@@ -10,7 +10,18 @@ from django.forms import Textarea, TextInput, ModelForm
 # Создаём класс формы
 class RegistrForm(UserCreationForm):
     # Добавляем новое поле Email
-    email = forms.EmailField(max_length=254, widget=forms.TextInput(attrs={'class': 'form-input'}))
+    email = forms.EmailField(max_length=254, widget=forms.TextInput(attrs={'class': 'form-control',
+                                                                           'placeholder': 'Введите email',
+                                                                           'id': 'user_email_inp'}))
+    username = forms.CharField(max_length=15, widget=forms.TextInput(attrs={'class':'form-control',
+                                                                            'placeholder': 'Введите имя нового пользователя',
+                                                                            'id': 'user_username_inp'}))
+    password1 = forms.CharField(max_length=254, widget=forms.PasswordInput(attrs={'class': 'form-control',
+                                                                                  'placeholder': 'Введите пароль',
+                                                                                  'id': 'user_pass1_inp'}))
+    password2 = forms.CharField(max_length=254, widget=forms.PasswordInput(attrs={'class': 'form-control',
+                                                                                 'placeholder': 'Подтвердите пароль',
+                                                                                 'id': 'user_pass2_inp'}))
 
 
     # Создаём класс Meta
@@ -19,6 +30,14 @@ class RegistrForm(UserCreationForm):
         model = User
         # Свойство назначения полей
         fields = ('username', 'email', 'password1', 'password2')
+
+class AuthenticationUser(AuthenticationForm):
+    username = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control',
+                                                             'placeholder': 'Введите логин',
+                                                             'id': 'user_login_inp'}))
+    password = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control',
+                                                                 'placeholder': 'Введите пароль',
+                                                                 'id': 'user_password_inp'}))
 
 class Authentication_code(forms.Form):
     auth_code = forms.CharField(label='Код подтверждения', widget=forms.TextInput(attrs={'class': 'form-input'}))

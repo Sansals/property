@@ -2,38 +2,22 @@
 
 {% block content %}
 
-{% if form.errors %}
-  <p>Такой пары пользователь/пароль не существует.</p>
-{% endif %}
-
-{% if next %}
-  {% if user.is_authenticated %}
-    <p>У вашей учётной записи нет доступа к этой странице.</p>
-  {% else %}
-    <p>Пожалуйста, войдите для посмотра этой страницы</p>
-  {% endif %}
-{% endif %}
-
-<form method="post" action="{% url 'login' %}">
-{% csrf_token %}
-<table>
-
-<tr>
-  <td>{{ form.username.label_tag }}</td>
-  <td>{{ form.username }}</td>
-</tr>
-
-<tr>
-  <td>{{ form.password.label_tag }}</td>
-  <td>{{ form.password }}</td>
-</tr>
-</table>
-<span id="error_span">{{error}}</span><br>
-<input type="submit" value="Войти" />
-<input type="hidden" name="next" value="{{ next }}" />
-  {# Assumes you setup the password_reset view in your URLconf #}
-<p><a href="{% url 'password_reset' %}">Забыли пароль?</a></p>
+<div class="add_name">
+<form method="POST">
+    {% csrf_token %}
+    <div class="form-group">
+    <label for="exampleInputEmail1">Логин:</label>
+    {{form.username}}
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Пароль:</label>
+    {{form.password}}
+    <small id="emailHelp" class="form-text text-muted">{{error}}</small>
+  </div>
+  <button type="submit" class="btn btn-primary">Войти!</button>
+  <p><a href="{% url 'password_reset' %}">Забыли пароль?</a></p>
 <p><a href="{% url 'signup' %}">Зарегистрироваться</a></p>
 </form>
+</div>
 
 {% endblock %}

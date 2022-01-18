@@ -2,6 +2,9 @@ body {
     background: #808080;
 }
 
+h1{
+    align-text:center!important;
+}
 .text-muted{
     color:#801919!important;
 }

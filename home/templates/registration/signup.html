@@ -1,33 +1,32 @@
 {% extends 'home/wrapper.html' %}
  
 {% block content %}
-<h2>Регистрация</h2>
-<form method="post">
-  {% csrf_token %}
-  {% if user.is_authenticated  %}
-    <p>Вы уже авторизированы!</p>
-  {% else %}
-  <table>
 
-    <tr>
-        <td>{{form.username.label_tag }}</td>
-        <td>{{ form.username }}</td>
-    </tr>
-    <tr>
-        <td>{{form.email.label_tag }}</td>
-        <td>{{ form.email }}</td>
-    </tr>
-    <tr>
-        <td>{{form.password1.label_tag }}</td>
-        <td>{{ form.password1 }}</td>
-    </tr>
-    <tr>
-        <td>{{form.password2.label_tag }}</td>
-        <td>{{ form.password2 }}</td>
-    </tr>
-    </table>
-    <span id="error_span">{{ error }}</span><br>
-    <button type="submit">Зарегистрироваться!</button>
-  {% endif %}
+
+<div class="add_name">
+    <h1>Регистрация</h1>
+<form method="POST">
+    {% csrf_token %}
+    <div class="form-group">
+    <label for="exampleInputEmail1">Логин:</label>
+    {{form.username}}
+     <small id="emailHelp" class="form-text text-muted">{{error_user}}</small>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Email:</label>
+    {{form.email}}
+    <small id="emailHelp" class="form-text text-muted">{{error_email}}</small>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Пароль:</label>
+    {{form.password1}}
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Подтвердите пароль:</label>
+    {{form.password2}}
+    <small id="emailHelp" class="form-text text-muted">{{error}}</small>
+  </div>
+  <button type="submit" class="btn btn-primary">Зарегистрироваться!</button>
 </form>
+</div>
 {% endblock content %}
