@@ -13,7 +13,7 @@
         <ul>
             <a href="{% url 'home' %}"><li><i class="fas fa-home"> </i>  Главная</li></a>
             <a href="{% url 'about' %}"><li><i class="fas fa-address-card"> </i>  Чем мы занимаемся</li></a>
-            <a href=""><li><i class="fas fa-rss-square"> </i>  Объявления</li></a>
+            <a href="{% url 'rules' %}"><li><i class="fas fa-rss-square"> </i> Правила </li></a>
             <a href=""><li><i class="fas fa-phone"> </i>  Контакты</li></a>
 
             {% if user.is_authenticated == True  %}

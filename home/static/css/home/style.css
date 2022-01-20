@@ -1,12 +1,17 @@
 body {
     background: #808080;
 }
-
-h1{
-    align-text:center!important;
+.head_text{
+    color:black;
+    text-align:center;
 }
+
+.home_img{
+    float:left;
+}
+
 .text-muted{
-    color:#801919!important;
+    color:red!important;
 }
 
 .add_name{
